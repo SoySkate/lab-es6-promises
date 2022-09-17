@@ -26,23 +26,6 @@
 // }, (error) => console.log(error));
 
 // Iteration 1 - using callbacks
-
-// getInstruction("mashedPotatoes", 0, (step1) => {
-//   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-// }, (error) => console.log(error));
-
-// Callback
-// En palabras demasiado coloquiales, es una funcion que se llama dentro de otra funcion. Puede ser en el body, puede ser como argumento/paramtero que es exactamente lo que estaremos haciendo en esta iteracion!
-
-// Esta funciona, basicamente se va a anidar dentro de la misma funcion por la cantidad de pasos que necesitemos llamar en el archivo de data.js
-// **BOILERPLATES**
-// getInstruction('mashedPotatoes', 0, (step) => { }, (error) => {console.log(error) });
-// Esto es lo que inyectaremos dentro de cada paso que recorra la funcion getInstructions dentro del array de mashedPotatoes que vive en el archivo de data.js
-// **BOILERPLATES**
-// document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-
-// Iteration 1 - using callbacks
-// V1 - Using an extra string within data.js
 getInstruction(
   "mashedPotatoes",
   0,
@@ -76,6 +59,9 @@ getInstruction(
                     document.querySelector(
                       "#mashedPotatoes"
                     ).innerHTML += `<li>${step}</li>`;
+                    document
+                      .querySelector("#mashedPotatoesImg")
+                      .removeAttribute("hidden");
                     getInstruction(
                       "mashedPotatoes",
                       5,
@@ -83,9 +69,6 @@ getInstruction(
                         document.querySelector(
                           "#mashedPotatoes"
                         ).innerHTML += `<li>${step}</li>`;
-                        document
-                          .querySelector("#mashedPotatoesImg")
-                          .removeAttribute("hidden");
                       },
                       (error) => {
                         console.log(error);
@@ -223,7 +206,7 @@ async function makeBroccoli() {
         console.log(error);
       });
   }
-  await obtainInstruction("broccoli", 7).then(() => {
+  await obtainInstruction("broccoli", 6).then(() => {
     document.querySelector("#broccoliImg").removeAttribute("hidden");
   });
 }
